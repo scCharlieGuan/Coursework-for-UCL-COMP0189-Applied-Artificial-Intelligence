@@ -4,30 +4,6 @@
 
 This project develops and evaluates machine learning pipelines for predicting diabetes patient readmission using the diabetes hospital encounter dataset. The work covers dataset exploration, leakage-aware data splitting, preprocessing, model selection, feature importance analysis, and feature-selection-based retraining.
 
-## Project Structure
-
-```text
-.
-|-- main.ipynb                         # Main notebook containing EDA, preprocessing, modelling and evaluation
-|-- COMP0189_coursework_1.pdf          # Coursework specification
-|-- dataset_diabetes/
-|   |-- diabetic_data.csv              # Original dataset
-|   |-- IDs_mapping.csv                # ID mapping file
-|   |-- train.csv                      # Generated training subset
-|   `-- test.csv                       # Generated held-out test set
-|-- saved_models/
-|   |-- best_LinearSVM.joblib          # Best Linear SVM pipeline
-|   |-- best_RF.joblib                 # Best Random Forest pipeline
-|   `-- best_HGB.joblib                # Best HistGradientBoosting pipeline
-|-- saved_models_task5/
-|   `-- best_rf_fs_pipeline.joblib     # Random Forest pipeline with feature selection
-|-- rf_fs_summary_*.json               # Task 5 repeated-run summaries
-|-- missing_ratio_plot.png             # Missing-value visualization
-`-- upload/
-    |-- Report.docx / Report.pdf       # Final report files
-    |-- Figures.docx / Figures.pdf     # Figure files
-    `-- main.ipynb                     # Submitted notebook copy
-```
 
 ## Dataset
 
