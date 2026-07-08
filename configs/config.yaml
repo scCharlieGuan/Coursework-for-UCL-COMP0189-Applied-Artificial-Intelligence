@@ -1,0 +1,61 @@
+# Main configuration for the patient readmission prediction project.
+# Paths are relative to the project root.
+
+random_state: 42
+
+paths:
+  raw_data: data/raw/diabetic_data.csv
+  id_mapping: data/raw/IDs_mapping.csv
+  processed_dir: data/processed
+  models_dir: models
+  reports_dir: reports
+  figures_dir: reports/figures
+  tables_dir: reports/tables
+
+split:
+  test_size_by_fold: 0.2       # implemented by taking 1 fold from StratifiedGroupKFold(n_splits=5)
+  validation_size: 0.2         # fraction of train_all reserved as validation
+  n_splits_outer: 5
+  create_validation: true
+
+preprocessing:
+  missing_threshold: 0.5
+  near_constant_threshold: 0.99
+  top_k_categories: 10
+  columns_to_drop:
+    - encounter_id
+    - patient_nbr
+    - acetohexamide
+    - troglitazone
+    - examide
+    - citoglipton
+    - glipizide-metformin
+    - glimepiride-pioglitazone
+    - metformin-rosiglitazone
+    - metformin-pioglitazone
+    - weight
+    - nateglinide
+    - chlorpropamide
+    - acarbose
+    - glyburide-metformin
+    - tolbutamide
+    - miglitol
+    - tolazamide
+
+training:
+  inner_splits: 5
+  n_repeats: 3
+  refit_metric: roc_auc
+  n_jobs: -1
+
+models:
+  LinearSVM:
+    enabled: true
+  LogisticRegression:
+    enabled: true
+  RandomForest:
+    enabled: true
+  HistGradientBoosting:
+    enabled: true
+  RandomForestFeatureSelection:
+    enabled: false
